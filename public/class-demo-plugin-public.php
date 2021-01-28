@@ -73,7 +73,7 @@ class Demo_Plugin_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __DIR__ ) . 'build/public/css/main.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, DEMO_PLUGIN_URL . 'build/public/css/main.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Demo_Plugin_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __DIR__ ) . 'build/public/js/main.js', array(), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, DEMO_PLUGIN_URL . 'build/public/js/main.js', array(), $this->version, false );
 
 	}
 

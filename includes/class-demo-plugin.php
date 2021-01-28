@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -79,6 +78,7 @@ class Demo_Plugin {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
+		$this->init_elementor_widget();
 	}
 
 	/**
@@ -103,27 +103,77 @@ class Demo_Plugin {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-demo-plugin-loader.php';
+		require_once DEMO_PLUGIN_PATH . 'includes/class-demo-plugin-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-demo-plugin-i18n.php';
+		require_once DEMO_PLUGIN_PATH . 'includes/class-demo-plugin-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-demo-plugin-admin.php';
+		require_once DEMO_PLUGIN_PATH . 'admin/class-demo-plugin-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-demo-plugin-public.php';
+		require_once DEMO_PLUGIN_PATH . 'public/class-demo-plugin-public.php';
 
 		$this->loader = new Demo_Plugin_Loader();
 
+	}
+
+	/**
+	 * Intialization elementor widget.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public function init_elementor_widget() {
+		$this->loader->add_action( 'elementor/init', $this, 'init_elementor_category' );
+		$this->loader->add_action( 'elementor/widgets/widgets_registered', $this, 'load_elementor_widget' );
+	}
+
+	/**
+	 * Init Elementor Category Section.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public function init_elementor_category() {
+		\Elementor\Plugin::instance()->elements_manager->add_category(
+			'demo-call-to-action-widget',
+			array(
+				'title' => __( 'Call to Actions', 'demo-plugin' ),
+				'icon'  => 'fa fa-external-link-alt',
+			)
+		);
+	}
+
+	/**
+	 * Loads Elementor widget.
+	 *
+	 * @return void
+	 */
+	public function load_elementor_widget() {
+		$this->include_widget_files();
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \CallToAction\Call_To_Action_Widget() );
+	}
+
+	/**
+	 * Include Widget Files.
+	 *
+	 * Includes the widget files.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function include_widget_files() {
+		require_once DEMO_PLUGIN_PATH . 'page-builders/elementor/class-call-to-action-widget.php';
 	}
 
 	/**

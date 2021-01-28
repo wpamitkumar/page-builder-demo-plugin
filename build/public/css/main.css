@@ -1,3 +1,61 @@
-.amit {
-  margin: 0 0 1.5em 0; }
+/* Styling for Call To Action. */
+.demo-call-to-action-widget {
+  justify-content: space-around;
+  transform: translateY(-50%);
+  color: #ffffff;
+  padding: 1.875rem; }
+  .demo-call-to-action-widget * {
+    margin: 0.3125rem 0; }
+
+.demo-call-to-action-widget.layout-style-1 {
+  display: block;
+  text-align: center; }
+
+.demo-call-to-action-widget.layout-style-2 {
+  display: flex; }
+
+.demo-call-to-action-widget__content {
+  display: flex;
+  flex: 3;
+  flex-flow: column wrap; }
+
+.demo-call-to-action-widget__button-area {
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center; }
+
+.call-to-action-title {
+  font-weight: 800; }
+
+.call-to-action-description {
+  font-size: 0.875rem;
+  font-weight: 600; }
+
+.demo-call-to-action-widget__button {
+  padding: 0.75em 2em;
+  text-align: center;
+  border: 0.125rem solid white;
+  font-size: 0.8125rem;
+  border-radius: 0.3em;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none; }
+  .demo-call-to-action-widget__button i {
+    margin-right: 0.625rem; }
+  .demo-call-to-action-widget__button:hover, .demo-call-to-action-widget__button:active {
+    background: #ffffff;
+    color: #0030f8; }
+
+.demo-call-to-action-widget__button-text {
+  font-size: 0.8125rem;
+  font-weight: 500; }
+
+@media screen and (max-width: 480px) {
+    .demo-call-to-action-widget.layout-style-2 {
+      display: block; } }
 

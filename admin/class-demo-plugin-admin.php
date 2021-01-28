@@ -72,7 +72,7 @@ class Demo_Plugin_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __DIR__ ) . 'build/admin/css/main.css', array( 'wp-components' ), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, DEMO_PLUGIN_URL . 'build/admin/css/main.css', array( 'wp-components' ), $this->version, 'all' );
 
 	}
 
@@ -95,7 +95,7 @@ class Demo_Plugin_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __DIR__ ) . 'build/admin/js/main.js', array(), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, DEMO_PLUGIN_URL . 'build/admin/js/main.js', array(), $this->version, false );
 
 	}
 
@@ -118,7 +118,7 @@ class Demo_Plugin_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name . '-optionpage', plugin_dir_url( __DIR__ ) . 'build/admin/js/optionpage.js', array( 'wp-api', 'wp-i18n', 'wp-components', 'wp-element' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name . '-optionpage', DEMO_PLUGIN_URL . 'build/admin/js/optionpage.js', array( 'wp-api', 'wp-i18n', 'wp-components', 'wp-element' ), $this->version, true );
 
 	}
 

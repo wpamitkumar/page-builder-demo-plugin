@@ -1,3 +1,76 @@
-.amit {
-	margin: 0 0 1.5em 0;
+/* Styling for Call To Action. */
+
+$small_device: 480px;
+
+.demo-call-to-action-widget{
+	justify-content: space-around;
+	transform: translateY(-50%);
+	color: #ffffff;
+	padding: 30px;
+
+	& * {
+		margin: 5px 0;
+	}
+}
+
+.demo-call-to-action-widget.layout-style-1 {
+	display: block;
+	text-align: center;
+}
+
+.demo-call-to-action-widget.layout-style-2 {
+	display: flex;
+	@media screen and ( max-width: $small_device ) {
+		display: block;
+	}
+}
+
+.demo-call-to-action-widget__content{
+	display: flex;
+	flex: 3;
+	flex-flow: column wrap;
+}
+
+.demo-call-to-action-widget__button-area {
+	display: flex;
+	flex: 1;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.call-to-action-title{
+	font-weight: 800;
+}
+
+.call-to-action-description{
+	font-size: 14px;
+	font-weight: 600;
+}
+.demo-call-to-action-widget__button {
+	padding: 0.75em 2em;
+	text-align: center;
+	border: 2px solid white;
+	font-size: 13px;
+	border-radius: 0.3em;
+	position: relative;
+	overflow: hidden;
+	display: inline-flex;
+	align-items: center;
+	color: #ffffff;
+	text-decoration: none;
+
+	& i {
+		margin-right: 10px;
+	}
+
+	&:hover, &:active {
+		background: #ffffff;
+		color: #0030f8;
+	}
+}
+
+.demo-call-to-action-widget__button-text{
+	font-size: 13px;
+	font-weight: 500;
 }
