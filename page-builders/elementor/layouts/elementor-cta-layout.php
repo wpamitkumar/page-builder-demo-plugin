@@ -18,8 +18,7 @@ $cta_description = is_blank_string( $settings['cta_description'], '' );
 $cta_button_icon  = is_blank_string( $settings['cta_button_icon'], '' );
 $cta_button_title = is_blank_string( $settings['cta_button_title'], '' );
 $cta_button_link  = is_blank_string( $settings['cta_button_link'], array() );
-// print_r($cta_button_link);
-// wp_die();
+
 if ( 'layout-style-2' === $cta_layout_style ) {
 	$layout_style_class = 'layout-style-2';
 } else {

@@ -285,16 +285,5 @@ class Call_To_Action_Widget extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		include DEMO_PLUGIN_PATH . 'page-builders/elementor/layouts/elementor-cta-layout.php';
-		/* switch ( $settings['cta_layout_style'] ) {
-			case 'layout-style-1':
-				include DEMO_PLUGIN_PATH . 'page-builders/elementor/layouts/elementor-cta-1.php'; // CTA Style 1.
-				break;
-			case 'layout-style-2':
-				include DEMO_PLUGIN_PATH . 'page-builders/elementor/layouts/elementor-cta-2.php'; // CTA Style 2.
-				break;
-			default:
-				include DEMO_PLUGIN_PATH . 'page-builders/elementor/layouts/elementor-cta-1.php'; // Default CTA Style 1.
-				break;
-		} */
 	}
 }
