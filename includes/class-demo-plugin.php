@@ -78,6 +78,7 @@ class Demo_Plugin {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
+		$this->init_beaver_module();
 		$this->init_elementor_widget();
 	}
 
@@ -124,6 +125,28 @@ class Demo_Plugin {
 
 		$this->loader = new Demo_Plugin_Loader();
 
+	}
+
+	/**
+	 * Intialization Beaver Module.
+	 *
+	 * @since    1.0.0
+	 * @access   public
+	 */
+	public function init_beaver_module() {
+		$this->loader->add_action( 'init', $this, 'load_beaver_module', 5 );
+	}
+
+	/**
+	 * Load Beaver Module.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function load_beaver_module() {
+		if ( class_exists( 'FLBuilder' ) ) {
+			require DEMO_PLUGIN_PATH . 'page-builders/beaver/class-module-call-to-action.php';
+		}
 	}
 
 	/**
